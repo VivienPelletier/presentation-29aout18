@@ -1,0 +1,65 @@
+
+\begin{frame}{Les différentes techniques}
+  \begin{tikzpicture}[every node/.append style={shape=rectangle, draw}]
+
+    % define style for focused node
+    \tikzstyle{focus} = [focusColor, thick]
+    \tikzstyle{focusBis} = [focusColorBis, thick]
+
+    % define command for each node for overprinted color
+    \newcommand*\nodeStyleReg{}
+    \newcommand*\nodeStyleSync{}
+    \newcommand*\nodeStyleAlge{}
+    \newcommand*\nodeStyleSAlge{}
+
+    % Associate color to slide pause number
+    \only<1-2>{ \renewcommand*\nodeStyleReg{focus} }
+    \only<3>{ \renewcommand*\nodeStyleAlge{focus} }
+    \only<4>{ \renewcommand*\nodeStyleSync{focus} }
+    \only<5>{ \renewcommand*\nodeStyleSAlge{focus} }
+    \only<6>{ \renewcommand*\nodeStyleSync{focusBis} }
+
+    % Create node for each language class
+    \node[\nodeStyleReg] (reg) at (0,0) {\scriptsize{Réguliers}};
+    \node[\nodeStyleSync] (synch) at (3,1) {\scriptsize{Synchronisés}};
+    \node[\nodeStyleAlge] (algeio) at (3,0) {\scriptsize{Algébriques IO}};
+    \node[\nodeStyleAlge] (algeoi) at (3,-1) {\scriptsize{Algébriques OI}};
+    \node[\nodeStyleSAlge] (synchalge) at (7,1) {\scriptsize{Synchronisés Algébriques}};
+
+    % Link nodes to show class inclusions
+    \draw[->] (reg.east) -- (synch.west);
+    \draw[->] (reg.east) -- (algeio.west);
+    \draw[->] (reg.east) -- (algeoi.west);
+    \draw[->] (synch.east) -- (synchalge.west);
+    \draw[->] (algeio.east) -- (synchalge.west);
+  \end{tikzpicture}
+  \vspace{\baselineskip}
+  \begin{overprint}
+    \onslide<1>
+    \begin{itemize}
+    \item {\footnotesize T. Genet, Decidable approximations of sets of descendants and sets of normal forms, RTA, 1998}
+    \item {\footnotesize T. Genet et F. Klay, Rewriting for cryptographic protocol verification, CADE, 2000}
+    \item {\footnotesize T. Genet et V. Rusu, Equational approximations for tree automata completion, JSC, 2010}
+    \end{itemize}
+    \onslide<2>
+    \begin{itemize}
+    \item {\footnotesize Y. Boichut et P.-C. Héam, A theoretical limit for safety verification techniques with regular fix-point computations, IPL, 2008}
+    \end{itemize}
+    \onslide<3>
+    \begin{itemize}
+    \item {\footnotesize J. Kochems et L. Ong, Improved functional flow and reachability analyses using indexed linear tree grammars, RTA, 2011}
+    \end{itemize}
+    \onslide<4>
+    \begin{itemize}
+    \item {\footnotesize Y. Boichut, J. Chabin, et P. Réty, Over-approximating descendants by synchronized tree languages, RTA, 2013}
+    \end{itemize}
+    \onslide<5>
+    \begin{itemize}
+    \item {\footnotesize Y. Boichut, J. Chabin, et P. Réty, Towards more precise rewriting approximations, LATA, 2015}
+    \end{itemize}
+    \onslide<6>
+    \begin{itemize}
+    \item {\footnotesize Y. Boichut, V. Pelletier, et P. Réty, Synchronized tree languages for reachability in non-right-linear term rewrite systems, WRLA, 2016}
+    \end{itemize}
+  \end{overprint}
+\end{frame}

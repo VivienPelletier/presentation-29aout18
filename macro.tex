@@ -1,0 +1,29 @@
+\newcommand\xrsquigarrow[1]{%
+  \mathrel{%
+    \begin{tikzpicture}[%
+      baseline={(current bounding box.south)}
+      ]
+      \node[%
+      ,inner sep=.44ex
+      ,align=center
+      ] (tmp) {$\scriptstyle #1$};
+      \path[%
+      ,draw,<-
+      ,decorate,decoration={%
+        ,zigzag
+        ,amplitude=0.7pt
+        ,segment length=1.2mm,pre length=3.5pt
+      }
+      ] 
+      (tmp.south east) -- (tmp.south west);
+    \end{tikzpicture}
+  }
+}
+
+\newcommand{\csprogramme}{\textsc{cs}-programme\xspace}
+\newcommand{\csprogrammes}{\textsc{cs}-programmes\xspace}
+\newcommand{\csclause}{\textsc{cs}-clause\xspace}
+\newcommand{\csclauses}{\textsc{cs}-clauses\xspace}
+\newcommand{\snc}{\textsc{snc}\xspace}
+\newcommand{\nc}{\textsc{nc}\xspace}
+\newcommand{\pctrs}{p\textsc{ctrs}\xspace}

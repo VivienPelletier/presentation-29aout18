@@ -1,0 +1,72 @@
+
+\begin{frame}{Méthode de complétion}
+  \begin{center}
+    \begin{tikzpicture}
+      \onslide<5->
+      \draw[fill=fig-color-ri] (4,0) ellipse (5 and 2.2);
+      \node (r*i) at (7.75,0) {$Prog'$};
+
+      \onslide<4->
+      \draw[fill=fig-color4] (3,0) ellipse (4 and 1.9);
+      \node (...) at (5.75,0) {$\cdots$};
+      
+      \onslide<3->
+      \draw[fill=fig-color3] (2,0) ellipse (3 and 1.6);
+      \node (r2i) at (4,0) {$R^2(Prog)$};
+
+      \onslide<2->      
+      \draw[fill=fig-color2] (1,0) ellipse (2 and 1.3);
+      \node (ri) at (1.75,0) {$R(Prog)$};
+
+      \onslide<1->
+      \draw[fill=fig-color-i] (0,0) ellipse (1 and 1);
+      \node (i) at (0,0) {$Prog$};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{L'algorithme de complétion}
+  \begin{center}
+    \resizebox{0.8\textwidth}{!}{
+      \begin{tikzpicture}
+
+        \tikzstyle{function} = [rectangle, rounded corners, shade, top color=white,
+            bottom color=blue!50!black!20, draw=blue!40!black!60, very
+            thick, align= center]
+        
+        \node[function]                                           (init)            {Début\\ Entrée : $R, Prog$};
+        \node[function, below=of init, text width= 3cm]           (removeCycle)     {Nettoyage};
+        \node[function, right=2cm of removeCycle, text width=3cm] (detect)          {Détection de paires critiques non convergentes};
+        \node[function, below right= of detect, text width= 2cm]  (norm)            {Ajout des clauses};
+        \node[function, above right= of detect]                   (end)             {Fin \\ Sortie : $Prog'$};
+        
+        \draw[->,thick, draw] (init)        -> (removeCycle);
+        \draw[->,thick, draw] (removeCycle) -> (detect);
+        \draw[->,thick, draw] (detect.east) -| (norm.north) node[above,pos=0.15] {Oui};
+        \draw[->,thick, draw] (detect)      |- (end.west) node[right,pos=0.15] {Non};
+        \draw[->,thick, draw] (norm.west)   -| (removeCycle);
+        
+      \end{tikzpicture}
+    }\\
+  \end{center}
+  \begin{columns}[t]
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}[<+->]
+      \item Un \csprogramme initial
+        \begin{itemize}
+        \item non copiant
+        \item normalisé
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}[<+->]
+      \item Un système de réécriture
+        \begin{itemize}
+        \item linéaire gauche
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+

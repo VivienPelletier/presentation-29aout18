@@ -1,0 +1,126 @@
+
+\begin{frame}{Analyse d'accessibilité}
+  Configurations
+  \begin{block}{}
+    \begin{itemize}[<+->]
+    \item Ensemble des configurations accessibles
+    \item Ensemble des configurations indésirables
+    \end{itemize}
+  \end{block}
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \onslide<3->
+      \begin{center}
+        \begin{tikzpicture}
+          \draw[fill=accessibleColor, fill opacity=0.5] (0,0) ellipse (1 and 0.75);
+          \node (r*i) at (0,0) {\scriptsize{Accessibles}};
+          \draw[fill=badColor, fill opacity=0.5] (1.75,0) ellipse (1 and 0.75);
+          \node (bad) at (1.75,0) {\scriptsize{Indésirables}};
+        \end{tikzpicture}\\
+        Il existe une configuration\\ indésirable accessible
+      \end{center}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \onslide<4>
+      \begin{center}
+        \begin{tikzpicture}
+          \draw[fill=accessibleColor, fill opacity=0.5] (0,0) ellipse (1 and 0.75);
+          \node (r*i) at (0,0) {\scriptsize{Accessibles}};
+          \draw[fill=badColor, fill opacity=0.5] (2.5,0) ellipse (1 and 0.75);
+          \node (bad) at (2.5,0) {\scriptsize{Indésirables}};
+        \end{tikzpicture}\\
+        Aucune configuration indésirable\\ n'est accessible
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Calcul de l'ensemble des configurations accessibles}
+  \begin{itemize}[<+->]
+  \item Configurations initiales : $I$
+  \item Dynamique : $R$
+  \end{itemize}
+  \begin{center}
+    \begin{tikzpicture}
+      \onslide<7->
+      \draw[fill=fig-color-ri] (4,0) ellipse (5 and 2.2);
+      \node (r*i) at (7.75,0) {$R^*(I)$};
+
+      \onslide<6->
+      \draw[fill=fig-color4] (3,0) ellipse (4 and 1.9);
+      \node (...) at (5.75,0) {$\cdots$};
+      
+      \onslide<5->
+      \draw[fill=fig-color3] (2,0) ellipse (3 and 1.6);
+      \node (r2i) at (3.75,0) {$R^2(I)$};
+
+      \onslide<4->      
+      \draw[fill=fig-color2] (1,0) ellipse (2 and 1.3);
+      \node (ri) at (1.75,0) {$R(I)$};
+
+      \onslide<3->
+      \draw[fill=fig-color-i] (0,0) ellipse (1 and 1);
+      \node (i) at (0,0) {$I$};
+      
+      \onslide<1->
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Sur-approximations}
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[fill=overApproxColor, fill opacity=0.5] (0,0) ellipse (2 and 1);
+      \node (r*i) at (-1.25,0) {$\mathcal H$};
+      
+      \draw[fill=accessibleColor, fill opacity=0.5] (0,0) ellipse (1 and 0.75);
+      \node (r*i) at (0,0) {\scriptsize{Accessibles}};
+      \draw[fill=badColor, fill opacity=0.5] (3.5,0) ellipse (1 and 0.75);
+      \node (bad) at (3.5,0) {\scriptsize{Indésirables}};
+    \end{tikzpicture}\\
+    Aucune configuration indésirable accessible\\
+  \end{center}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \pause
+      \begin{center}
+        \begin{tikzpicture}
+          \draw[fill=overApproxColor, fill opacity=0.5] (0,0) ellipse (2 and 1);
+          \node (r*i) at (-1.25,0) {$\mathcal H$};
+          
+          \draw[fill=accessibleColor, fill opacity=0.5] (0,0) ellipse (1 and 0.75);
+          \node (r*i) at (0,0) {\scriptsize{Accessibles}};
+          \draw[fill=badColor, fill opacity=0.5] (1.75,0) ellipse (1 and 0.75);
+          \node (bad) at (1.75,0) {\scriptsize{Indésirables}};
+        \end{tikzpicture}\\
+        Il existe une configuration\\ indésirable accessible
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \pause
+      \begin{center}
+        \begin{tikzpicture}
+          \draw[fill=overApproxColor, fill opacity=0.5] (0,0) ellipse (2 and 1);
+          \node (r*i) at (-1.25,0) {$\mathcal H$};
+          
+          \draw[fill=accessibleColor, fill opacity=0.5] (0,0) ellipse (1 and 0.75);
+          \node (r*i) at (0,0) {\scriptsize{Accessibles}};
+          \draw[fill=badColor, fill opacity=0.5] (2.5,0) ellipse (1 and 0.75);
+          \node (bad) at (2.5,0) {\scriptsize{Indésirables}};
+        \end{tikzpicture}\\
+        Aucune configuration \\indésirable accessible\\ (faux-positif)
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Notre modélisation}
+  \begin{block}{}
+    \begin{itemize}[<+->]
+    \item Configuration : un terme
+    \item Configurations initiales : un langage de termes
+    \item Dynamique du système : un système de réécriture
+    \item Configurations indésirables : un langage de termes
+    \end{itemize}
+  \end{block}
+\end{frame}
